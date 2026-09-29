@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#182b26">
+  <meta name="description" content="A little birthday surprise for Oli.">
+  <title>Happy Birthday, Oli!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182b26;
+      --paper: #fff8e9;
+      --coral: #ff705b;
+      --yellow: #ffd166;
+      --green: #9ac9a1;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 100svh;
+      overflow: hidden;
+      place-items: center;
+      isolation: isolate;
+      background: #263932;
+      color: #fff8e9;
+      text-align: center;
+    }
+
+    .hero-photo {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: rgba(12, 28, 23, 0.57);
+      content: "";
+    }
+
+    .hero-content {
+      width: min(100% - 40px, 780px);
+      padding: 76px 0;
+      animation: arrive 800ms ease-out both;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 96px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .hero-message {
+      margin: 18px 0 30px;
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    .wish-button {
+      min-height: 52px;
+      padding: 0 25px;
+      border: 0;
+      border-radius: 3px;
+      background: var(--yellow);
+      color: var(--ink);
+      cursor: pointer;
+      font: 700 15px "DM Sans", sans-serif;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .wish-button:hover { background: #ffe09a; transform: translateY(-2px); }
+    .wish-button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 24px;
+      color: #fff8e9;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .note {
+      display: grid;
+      min-height: 340px;
+      padding: 72px 24px 84px;
+      place-items: center;
+      text-align: center;
+    }
+
+    .note-content { max-width: 640px; }
+
+    .note-mark {
+      display: inline-grid;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 16px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      font-size: 20px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 38px;
+      line-height: 1.2;
+    }
+
+    .note p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .signoff {
+      margin-top: 22px !important;
+      color: #a74638;
+      font-weight: 700;
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 5;
+      top: -14px;
+      width: 9px;
+      height: 14px;
+      pointer-events: none;
+      animation: fall var(--fall-time) linear forwards;
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fall {
+      to { transform: translate3d(var(--drift), 110vh, 0) rotate(720deg); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 68px; }
+      .hero-message { font-size: 18px; }
+      .hero-content { width: min(100% - 32px, 780px); }
+      .note { min-height: 320px; padding-inline: 22px; }
+      h2 { font-size: 32px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="birthday-title">
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Colorful balloons and decorations at a celebration">
+      <div class="hero-content">
+        <p class="eyebrow">A little celebration for someone wonderful</p>
+        <h1 id="birthday-title">Oli!</h1>
+        <p class="hero-message">Happy birthday! Today, the whole world gets to celebrate you.</p>
+        <button class="wish-button" id="wish-button" type="button" aria-controls="birthday-note">Make a wish</button>
+      </div>
+      <span class="scroll-note" aria-hidden="true">A little more below</span>
+    </section>
+
+    <section class="note" id="birthday-note" aria-labelledby="note-title">
+      <div class="note-content">
+        <span class="note-mark" aria-hidden="true">*</span>
+        <h2 id="note-title">Here's to your next trip around the sun.</h2>
+        <p>May this year bring you big laughs, lovely surprises, and plenty of moments that feel like they were made just for you. You deserve all the good things coming your way.</p>
+        <p class="signoff">Have the happiest birthday, Oli!</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const wishButton = document.querySelector("#wish-button");
+    const birthdayNote = document.querySelector("#birthday-note");
+    const colors = ["#ff705b", "#ffd166", "#9ac9a1", "#fff8e9", "#73c9cf"];
+
+    wishButton.addEventListener("click", () => {
+      birthdayNote.scrollIntoView({ behavior: "smooth", block: "center" });
+      wishButton.textContent = "Wish sent!";
+      wishButton.disabled = true;
+
+      for (let index = 0; index < 90; index += 1) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.setAttribute("aria-hidden", "true");
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.backgroundColor = colors[index % colors.length];
+        piece.style.setProperty("--drift", `${Math.random() * 220 - 110}px`);
+        piece.style.setProperty("--fall-time", `${2.4 + Math.random() * 2.2}s`);
+        document.body.append(piece);
+        piece.addEventListener("animationend", () => piece.remove(), { once: true });
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
