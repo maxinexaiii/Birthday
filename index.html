@@ -52,6 +52,19 @@
       object-position: center 55%;
     }
 
+    .hero-number {
+      position: absolute;
+      z-index: 0;
+      top: 56%;
+      left: 74%;
+      color: var(--paper);
+      font: 700 260px "Fredoka", sans-serif;
+      line-height: 1;
+      opacity: 0.15;
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotate(-12deg);
+    }
+
     .hero::before {
       position: absolute;
       z-index: -1;
@@ -61,6 +74,8 @@
     }
 
     .hero-content {
+      position: relative;
+      z-index: 1;
       width: min(100% - 40px, 780px);
       padding: 76px 0;
       animation: arrive 800ms ease-out both;
@@ -164,11 +179,14 @@
     .confetti-number {
       width: auto;
       height: auto;
-      background: transparent !important;
-      color: var(--yellow);
+      padding: 2px 6px;
+      border: 2px solid var(--coral);
+      border-radius: 8px;
+      background: var(--paper) !important;
+      color: var(--ink);
       font: 700 26px "Fredoka", sans-serif;
       line-height: 1;
-      text-shadow: 1px 2px var(--ink);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
 
     @keyframes arrive {
@@ -183,6 +201,7 @@
     @media (max-width: 600px) {
       h1 { font-size: 68px; }
       .hero-message { font-size: 18px; }
+      .hero-number { left: 76%; font-size: 190px; }
       .hero-content { width: min(100% - 32px, 780px); }
       .note { min-height: 320px; padding-inline: 22px; }
       h2 { font-size: 32px; }
@@ -202,6 +221,7 @@
   <main>
     <section class="hero" aria-labelledby="birthday-title">
       <img class="hero-photo" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Colorful balloons and decorations at a celebration">
+      <span class="hero-number" aria-hidden="true">14</span>
       <div class="hero-content">
         <p class="eyebrow">A little celebration for someone wonderful</p>
         <h1 id="birthday-title">Oli!</h1>
@@ -216,7 +236,7 @@
         <span class="note-mark" aria-hidden="true">*</span>
         <h2 id="note-title">Here's to your next trip around the sun.</h2>
         <p>May this year bring you big laughs, lovely surprises, and plenty of moments that feel like they were made just for you. You deserve all the good things coming your way.</p>
-        <p class="signoff">'Di kita makikita today pero mabibigyan pa rin kita ng letter. Kung gusto, may paraan. kung ayaw, may dahilan. 67</p>
+        <p class="signoff">'Di kita makikita today pero mabibigyan pa rin kita ng letter. Kung gusto, may paraan. Kung ayaw, may dahilan. 67</p>
       </div>
     </section>
   </main>
