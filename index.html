@@ -65,6 +65,20 @@
       transform: translate(-50%, -50%) rotate(-12deg);
     }
 
+    .hero-background-message {
+      position: absolute;
+      z-index: 0;
+      top: 23%;
+      left: 50%;
+      color: var(--yellow);
+      font: 700 42px "Fredoka", sans-serif;
+      line-height: 1;
+      opacity: 0.25;
+      pointer-events: none;
+      transform: translateX(-50%) rotate(-5deg);
+      white-space: nowrap;
+    }
+
     .hero::before {
       position: absolute;
       z-index: -1;
@@ -202,6 +216,7 @@
       h1 { font-size: 68px; }
       .hero-message { font-size: 18px; }
       .hero-number { left: 76%; font-size: 210px; }
+      .hero-background-message { top: 21%; font-size: 25px; }
       .hero-content { width: min(100% - 32px, 780px); }
       .note { min-height: 320px; padding-inline: 22px; }
       h2 { font-size: 32px; }
@@ -221,7 +236,8 @@
   <main>
     <section class="hero" aria-labelledby="birthday-title">
       <img class="hero-photo" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Colorful balloons and decorations at a celebration">
-      <span class="hero-number" aria-hidden="true">14</span>
+      <span class="hero-number" aria-hidden="true">15</span>
+      <span class="hero-background-message" aria-hidden="true">Happiest birthday!</span>
       <div class="hero-content">
         <p class="eyebrow">A little celebration for someone wonderful</p>
         <h1 id="birthday-title">Oli!</h1>
