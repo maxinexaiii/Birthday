@@ -58,9 +58,9 @@
       top: 56%;
       left: 74%;
       color: var(--paper);
-      font: 700 260px "Fredoka", sans-serif;
+      font: 700 290px "Fredoka", sans-serif;
       line-height: 1;
-      opacity: 0.15;
+      opacity: 0.28;
       pointer-events: none;
       transform: translate(-50%, -50%) rotate(-12deg);
     }
@@ -184,7 +184,7 @@
       border-radius: 8px;
       background: var(--paper) !important;
       color: var(--ink);
-      font: 700 26px "Fredoka", sans-serif;
+      font: 700 32px "Fredoka", sans-serif;
       line-height: 1;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
@@ -201,7 +201,7 @@
     @media (max-width: 600px) {
       h1 { font-size: 68px; }
       .hero-message { font-size: 18px; }
-      .hero-number { left: 76%; font-size: 190px; }
+      .hero-number { left: 76%; font-size: 210px; }
       .hero-content { width: min(100% - 32px, 780px); }
       .note { min-height: 320px; padding-inline: 22px; }
       h2 { font-size: 32px; }
@@ -255,7 +255,7 @@
         const piece = document.createElement("span");
         piece.className = "confetti";
         piece.setAttribute("aria-hidden", "true");
-        if (index % 6 === 0) {
+        if (index % 3 === 0) {
           piece.classList.add("confetti-number");
           piece.textContent = "67";
         }
