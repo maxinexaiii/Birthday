@@ -1,288 +1,485 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#182b26">
-  <meta name="description" content="A little birthday surprise for Oli.">
-  <title>Happy Birthday, Oli!</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #182b26;
-      --paper: #fff8e9;
-      --coral: #ff705b;
-      --yellow: #ffd166;
-      --green: #9ac9a1;
-    }
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#102221" />
+		<meta
+			name="description"
+			content="A birthday letter celebrating Oli's 15th birthday."
+		/>
+		<meta property="og:title" content="Oli's 15th Birthday: Online Letter '26" />
+		<title>Oli's 15th Birthday: Online Letter '26</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				color-scheme: dark;
+				--ink: #102221;
+				--cream: #fff8e9;
+				--lime: #d5fa68;
+				--coral: #ff8068;
+				--sky: #79d9d1;
+			}
 
-    * { box-sizing: border-box; }
+			* {
+				box-sizing: border-box;
+			}
 
-    html { scroll-behavior: smooth; }
+			body {
+				min-width: 320px;
+				min-height: 100vh;
+				margin: 0;
+				overflow-x: hidden;
+				background: var(--ink);
+				color: var(--cream);
+				font-family: "DM Sans", sans-serif;
+			}
 
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "DM Sans", sans-serif;
-    }
+			button {
+				font: inherit;
+			}
 
-    .hero {
-      position: relative;
-      display: grid;
-      min-height: 100svh;
-      overflow: hidden;
-      place-items: center;
-      isolation: isolate;
-      background: #263932;
-      color: #fff8e9;
-      text-align: center;
-    }
+			.birthday {
+				position: relative;
+				display: flex;
+				min-height: 100svh;
+				flex-direction: column;
+				isolation: isolate;
+				overflow: hidden;
+				background:
+					linear-gradient(90deg, rgb(8 24 23 / 88%) 0%, rgb(8 24 23 / 58%) 56%, rgb(8 24 23 / 30%) 100%),
+					linear-gradient(0deg, rgb(8 24 23 / 38%), transparent 42%),
+					url("https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=2200&q=85")
+						center 47% / cover,
+					var(--ink);
+			}
 
-    .hero-photo {
-      position: absolute;
-      z-index: -2;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 55%;
-    }
+			.birthday::after {
+				position: absolute;
+				z-index: -1;
+				inset: 0;
+				background-image: radial-gradient(rgb(255 255 255 / 13%) 0.65px, transparent 0.65px);
+				background-size: 5px 5px;
+				content: "";
+				opacity: 0.2;
+				pointer-events: none;
+			}
 
-    .hero-number {
-      position: absolute;
-      z-index: 0;
-      top: 56%;
-      left: 74%;
-      color: var(--paper);
-      font: 700 290px "Fredoka", sans-serif;
-      line-height: 1;
-      opacity: 0.28;
-      pointer-events: none;
-      transform: translate(-50%, -50%) rotate(-12deg);
-    }
+			.background-number,
+			.background-greeting {
+				position: absolute;
+				z-index: -1;
+				margin: 0;
+				color: var(--cream);
+				font-family: "Space Grotesk", sans-serif;
+				font-weight: 700;
+				line-height: 0.78;
+				pointer-events: none;
+				user-select: none;
+			}
 
-    .hero-background-message {
-      position: absolute;
-      z-index: 0;
-      top: 23%;
-      left: 50%;
-      color: var(--yellow);
-      font: 700 42px "Fredoka", sans-serif;
-      line-height: 1;
-      opacity: 0.25;
-      pointer-events: none;
-      transform: translateX(-50%) rotate(-5deg);
-      white-space: nowrap;
-    }
+			.background-number {
+				top: 5%;
+				right: 5%;
+				color: transparent;
+				font-size: clamp(23rem, 63vw, 65rem);
+				letter-spacing: 0;
+				-webkit-text-stroke: 2px rgb(255 248 233 / 17%);
+				animation: number-arrive 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+			}
 
-    .hero::before {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background: rgba(12, 28, 23, 0.57);
-      content: "";
-    }
+			.background-greeting {
+				right: -3%;
+				bottom: 13%;
+				max-width: 100%;
+				color: rgb(255 248 233 / 12%);
+				font-size: clamp(4.3rem, 12.3vw, 13rem);
+				letter-spacing: 0;
+				white-space: nowrap;
+				transform: rotate(-7deg);
+				animation: greeting-arrive 1.2s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
+			}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: min(100% - 40px, 780px);
-      padding: 76px 0;
-      animation: arrive 800ms ease-out both;
-    }
+			.topbar,
+			.hero,
+			.footer {
+				width: min(100% - 9vw, 1440px);
+				margin-inline: auto;
+			}
 
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--yellow);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
+			.topbar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-block: 30px;
+				border-bottom: 1px solid rgb(255 248 233 / 24%);
+				animation: fade-in 0.7s 0.25s both;
+			}
 
-    h1 {
-      margin: 0;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 96px;
-      font-weight: 800;
-      line-height: 1;
-    }
+			.wordmark {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-family: "Space Grotesk", sans-serif;
+				font-size: 0.87rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
 
-    .hero-message {
-      margin: 18px 0 30px;
-      font-size: 22px;
-      line-height: 1.5;
-    }
+			.wordmark-mark {
+				display: grid;
+				width: 29px;
+				aspect-ratio: 1;
+				place-items: center;
+				border-radius: 50%;
+				background: var(--lime);
+				color: var(--ink);
+				font-size: 0.78rem;
+			}
 
-    .wish-button {
-      min-height: 52px;
-      padding: 0 25px;
-      border: 0;
-      border-radius: 3px;
-      background: var(--yellow);
-      color: var(--ink);
-      cursor: pointer;
-      font: 700 15px "DM Sans", sans-serif;
-      transition: background-color 160ms ease, transform 160ms ease;
-    }
+			.top-note {
+				color: rgb(255 248 233 / 76%);
+				font-size: 0.7rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
 
-    .wish-button:hover { background: #ffe09a; transform: translateY(-2px); }
-    .wish-button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+			.hero {
+				display: flex;
+				flex: 1;
+				align-items: center;
+				padding-block: clamp(70px, 12vh, 155px);
+			}
 
-    .scroll-note {
-      position: absolute;
-      bottom: 24px;
-      color: #fff8e9;
-      font-size: 12px;
-      font-weight: 600;
-    }
+			.hero-content {
+				width: min(100%, 760px);
+				animation: fade-in 0.8s 0.35s both;
+			}
 
-    .note {
-      display: grid;
-      min-height: 340px;
-      padding: 72px 24px 84px;
-      place-items: center;
-      text-align: center;
-    }
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 9px;
+				margin: 0 0 24px;
+				color: var(--lime);
+				font-size: 0.78rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
 
-    .note-content { max-width: 640px; }
+			.eyebrow::before {
+				width: 23px;
+				height: 2px;
+				background: var(--lime);
+				content: "";
+			}
 
-    .note-mark {
-      display: inline-grid;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 16px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--green);
-      font-size: 20px;
-    }
+			h1 {
+				margin: 0;
+				font-family: "Space Grotesk", sans-serif;
+				font-size: clamp(5rem, 13vw, 11.5rem);
+				font-weight: 700;
+				letter-spacing: 0;
+				line-height: 0.82;
+			}
 
-    h2 {
-      margin: 0 0 16px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 38px;
-      line-height: 1.2;
-    }
+			.birthday-line {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				margin-top: 31px;
+				color: var(--lime);
+				font-family: "Space Grotesk", sans-serif;
+				font-size: clamp(1.4rem, 3.2vw, 2.35rem);
+				font-weight: 600;
+			}
 
-    .note p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.8;
-    }
+			.birthday-line span {
+				color: var(--coral);
+				font-size: 0.75em;
+			}
 
-    .signoff {
-      margin-top: 22px !important;
-      color: #a74638;
-      font-weight: 700;
-    }
+			.message {
+				max-width: 470px;
+				margin: 24px 0 0;
+				color: rgb(255 248 233 / 91%);
+				font-size: clamp(1rem, 1.35vw, 1.13rem);
+				line-height: 1.75;
+			}
 
-    .confetti {
-      position: fixed;
-      z-index: 5;
-      top: -14px;
-      width: 9px;
-      height: 14px;
-      pointer-events: none;
-      animation: fall var(--fall-time) linear forwards;
-    }
+			.wish-button {
+				display: inline-flex;
+				min-height: 54px;
+				align-items: center;
+				gap: 12px;
+				margin-top: 32px;
+				padding: 0 22px;
+				border: 0;
+				border-radius: 3px;
+				background: var(--lime);
+				color: var(--ink);
+				cursor: pointer;
+				font-weight: 700;
+				transition: background-color 160ms ease, transform 160ms ease;
+			}
 
-    .confetti-number {
-      width: auto;
-      height: auto;
-      padding: 2px 6px;
-      border: 2px solid var(--coral);
-      border-radius: 8px;
-      background: var(--paper) !important;
-      color: var(--ink);
-      font: 700 32px "Fredoka", sans-serif;
-      line-height: 1;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-    }
+			.wish-button:hover {
+				transform: translateY(-2px);
+				background: #e3ff91;
+			}
 
-    @keyframes arrive {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+			.wish-button:focus-visible {
+				outline: 3px solid var(--cream);
+				outline-offset: 4px;
+			}
 
-    @keyframes fall {
-      to { transform: translate3d(var(--drift), 110vh, 0) rotate(720deg); }
-    }
+			.wish-button span {
+				color: #49713b;
+				font-size: 1.25rem;
+			}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 68px; }
-      .hero-message { font-size: 18px; }
-      .hero-number { left: 76%; font-size: 210px; }
-      .hero-background-message { top: 21%; font-size: 25px; }
-      .hero-content { width: min(100% - 32px, 780px); }
-      .note { min-height: 320px; padding-inline: 22px; }
-      h2 { font-size: 32px; }
-    }
+			.footer {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-block: 20px 25px;
+				border-top: 1px solid rgb(255 248 233 / 24%);
+				color: rgb(255 248 233 / 77%);
+				font-size: 0.72rem;
+				font-weight: 600;
+				text-transform: uppercase;
+			}
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <section class="hero" aria-labelledby="birthday-title">
-      <img class="hero-photo" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Colorful balloons and decorations at a celebration">
-      <span class="hero-number" aria-hidden="true">15</span>
-      <span class="hero-background-message" aria-hidden="true">Happiest birthday!</span>
-      <div class="hero-content">
-        <p class="eyebrow">A little celebration for someone wonderful</p>
-        <h1 id="birthday-title">Oli!</h1>
-        <p class="hero-message">Happy birthday! Today, the whole world gets to celebrate you.</p>
-        <button class="wish-button" id="wish-button" type="button" aria-controls="birthday-note">Make a wish</button>
-      </div>
-      <span class="scroll-note" aria-hidden="true">A little more below</span>
-    </section>
+			.footer-note {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
 
-    <section class="note" id="birthday-note" aria-labelledby="note-title">
-      <div class="note-content">
-        <span class="note-mark" aria-hidden="true">*</span>
-        <h2 id="note-title">Here's to your next trip around the sun.</h2>
-        <p>May this year bring you big laughs, lovely surprises, and plenty of moments that feel like they were made just for you. You deserve all the good things coming your way.</p>
-        <p class="signoff">'Di kita makikita today pero mabibigyan pa rin kita ng letter. Kung gusto, may paraan. Kung ayaw, may dahilan. 67</p>
-      </div>
-    </section>
-  </main>
+			.footer-note span {
+				color: var(--coral);
+			}
 
-  <script>
-    const wishButton = document.querySelector("#wish-button");
-    const birthdayNote = document.querySelector("#birthday-note");
-    const colors = ["#ff705b", "#ffd166", "#9ac9a1", "#fff8e9", "#73c9cf"];
+			.toast {
+				position: fixed;
+				z-index: 2;
+				right: 24px;
+				bottom: 24px;
+				max-width: calc(100vw - 48px);
+				padding: 15px 19px;
+				border-left: 3px solid var(--lime);
+				background: var(--cream);
+				color: var(--ink);
+				font-size: 0.9rem;
+				font-weight: 700;
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(10px);
+				transition: opacity 180ms ease, transform 180ms ease;
+			}
 
-    wishButton.addEventListener("click", () => {
-      birthdayNote.scrollIntoView({ behavior: "smooth", block: "center" });
-      wishButton.textContent = "Wish sent!";
-      wishButton.disabled = true;
+			.toast.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
 
-      for (let index = 0; index < 90; index += 1) {
-        const piece = document.createElement("span");
-        piece.className = "confetti";
-        piece.setAttribute("aria-hidden", "true");
-        if (index % 3 === 0) {
-          piece.classList.add("confetti-number");
-          piece.textContent = "67";
-        }
-        piece.style.left = `${Math.random() * 100}vw`;
-        piece.style.backgroundColor = colors[index % colors.length];
-        piece.style.setProperty("--drift", `${Math.random() * 220 - 110}px`);
-        piece.style.setProperty("--fall-time", `${2.4 + Math.random() * 2.2}s`);
-        document.body.append(piece);
-        piece.addEventListener("animationend", () => piece.remove(), { once: true });
-      }
-    }, { once: true });
-  </script>
-</body>
+			.confetti {
+				position: fixed;
+				z-index: 1;
+				top: -14px;
+				width: 9px;
+				height: 14px;
+				pointer-events: none;
+				animation: confetti-fall var(--fall-time, 2.5s) linear forwards;
+			}
+
+			.pop-67 {
+				position: fixed;
+				z-index: 3;
+				top: 50%;
+				left: 50%;
+				color: var(--lime);
+				font-family: "Fredoka", sans-serif;
+				font-size: clamp(12rem, 46vw, 38rem);
+				font-weight: 700;
+				line-height: 0.8;
+				pointer-events: none;
+				text-shadow: 0 12px 0 var(--coral), 0 22px 50px rgb(0 0 0 / 45%);
+				-webkit-text-stroke: 3px var(--ink);
+				animation: pop-67 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+			}
+
+			@keyframes fade-in {
+				from { opacity: 0; transform: translateY(12px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+
+			@keyframes number-arrive {
+				from { opacity: 0; transform: translateY(20px) scale(0.97); }
+				to { opacity: 1; transform: translateY(0) scale(1); }
+			}
+
+			@keyframes greeting-arrive {
+				from { opacity: 0; translate: 2% 16px; }
+				to { opacity: 1; translate: 0 0; }
+			}
+
+			@keyframes confetti-fall {
+				to { translate: var(--drift, 40px) 105vh; rotate: 720deg; }
+			}
+
+			@keyframes pop-67 {
+				0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) rotate(-14deg); }
+				18% { opacity: 1; transform: translate(-50%, -50%) scale(1.12) rotate(7deg); }
+				38%, 76% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-3deg); }
+				100% { opacity: 0; transform: translate(-50%, -58%) scale(0.82) rotate(4deg); }
+			}
+
+			@media (max-width: 600px) {
+				.birthday {
+					background-position: 58% center;
+				}
+
+				.topbar,
+				.hero,
+				.footer {
+					width: min(100% - 40px, 1440px);
+				}
+
+				.topbar {
+					padding-block: 22px;
+				}
+
+				.top-note {
+					max-width: 120px;
+					text-align: right;
+				}
+
+				.hero {
+					align-items: flex-end;
+					padding-block: 90px 100px;
+				}
+
+				.background-number {
+					top: 14%;
+					right: -3%;
+					font-size: 85vw;
+				}
+
+				.background-greeting {
+					right: -26%;
+					bottom: 24%;
+					font-size: 19vw;
+				}
+
+				.footer {
+					gap: 15px;
+					font-size: 0.62rem;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*::before,
+				*::after {
+					scroll-behavior: auto !important;
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+					transition-duration: 0.01ms !important;
+				}
+
+				.pop-67 {
+					animation: none;
+					opacity: 1;
+					transform: translate(-50%, -50%);
+				}
+
+				.confetti {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="birthday">
+			<p class="background-number" aria-hidden="true">15</p>
+			<p class="background-greeting" aria-hidden="true">Happiest birthday!</p>
+
+			<header class="topbar">
+				<div class="wordmark"><span class="wordmark-mark">O</span> Oli's day</div>
+				<div class="top-note">A whole new level</div>
+			</header>
+
+			<section class="hero" aria-labelledby="birthday-title">
+				<div class="hero-content">
+					<p class="eyebrow">
+						<time datetime="2026-09-29">September 29, 2026</time> · Level 15
+					</p>
+					<h1 id="birthday-title">Oli</h1>
+					<div class="birthday-line">Fifteen looks good on you <span aria-hidden="true">✦</span></div>
+					<p class="message">
+						Here’s to a year full of good surprises, big laughs, and stories you’ll
+						be telling for ages. Make it an unforgettable one, Oli. Today is all
+						yours.
+					</p>
+					<button class="wish-button" id="wish-button" type="button">
+						<span aria-hidden="true">✦</span> Make a wish
+					</button>
+				</div>
+			</section>
+
+			<footer class="footer">
+				<div>Made By: Marian</div>
+				<div class="footer-note"><span aria-hidden="true">✳</span> Make it count</div>
+			</footer>
+		</main>
+
+		<div class="toast" id="wish-toast" role="status" aria-live="polite">
+			Wish sent. Make this year yours, Oli!
+		</div>
+
+		<script>
+			const wishButton = document.querySelector("#wish-button");
+			const wishToast = document.querySelector("#wish-toast");
+			const partyColors = ["#d5fa68", "#ff8068", "#79d9d1", "#fff8e9"];
+			let toastTimeout;
+
+			wishButton.addEventListener("click", () => {
+				wishToast.classList.add("is-visible");
+				window.clearTimeout(toastTimeout);
+				toastTimeout = window.setTimeout(() => {
+					wishToast.classList.remove("is-visible");
+				}, 2800);
+
+				document.querySelector(".pop-67")?.remove();
+				const number = document.createElement("span");
+				number.className = "pop-67";
+				number.setAttribute("aria-hidden", "true");
+				number.textContent = "67";
+				document.body.append(number);
+
+				const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				window.setTimeout(() => number.remove(), reducedMotion ? 1200 : 1900);
+
+				if (reducedMotion) return;
+
+				for (let index = 0; index < 48; index += 1) {
+					const piece = document.createElement("span");
+					piece.className = "confetti";
+					piece.style.left = `${Math.random() * 100}vw`;
+					piece.style.backgroundColor = partyColors[index % partyColors.length];
+					piece.style.setProperty("--drift", `${Math.random() * 160 - 80}px`);
+					piece.style.setProperty("--fall-time", `${1.7 + Math.random() * 1.5}s`);
+					piece.style.animationDelay = `${Math.random() * 0.4}s`;
+					document.body.append(piece);
+					window.setTimeout(() => piece.remove(), 3800);
+				}
+			});
+		</script>
+	</body>
 </html>
