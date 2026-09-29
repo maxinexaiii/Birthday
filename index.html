@@ -161,6 +161,14 @@
       animation: fall var(--fall-time) linear forwards;
     }
 
+    .confetti-number {
+      width: auto;
+      height: auto;
+      background: transparent !important;
+      font: 700 18px "Playfair Display", Georgia, serif;
+      line-height: 1;
+    }
+
     @keyframes arrive {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -225,6 +233,10 @@
         const piece = document.createElement("span");
         piece.className = "confetti";
         piece.setAttribute("aria-hidden", "true");
+        if (index % 6 === 0) {
+          piece.classList.add("confetti-number");
+          piece.textContent = "67";
+        }
         piece.style.left = `${Math.random() * 100}vw`;
         piece.style.backgroundColor = colors[index % colors.length];
         piece.style.setProperty("--drift", `${Math.random() * 220 - 110}px`);
